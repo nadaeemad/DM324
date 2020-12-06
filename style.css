@@ -35,7 +35,7 @@ li a.active{
     color: white;
     }
 
-div{
+div:not(.searchbar,.mytable){
     border: 2px dotted;
     background-color:lightgray;
     border-radius: 15px;
@@ -56,4 +56,28 @@ thead tr{
 }
 tbody tr:nth-child(even){
     background-color: lightgray;
+}
+.searchbar{
+    width:30%;
+    height:auto;
+    display:flex;
+    border:1px;
+    border-style: solid;
+    border-color:lightgray;
+    margin:8px auto;
+    border-radius:15px 10px 15px;
+    display:flexbox;
+}
+.searchbox{
+    width:90%;
+    padding:0px 30px;
+    border:2px;
+    border:lightgray;
+    margin: 0 2px;
+    outline:none;
+}
+
+.searchbar:hover{
+    box-shadow:5px 5px 0 dimgrey;
+    border-color:black;
 }

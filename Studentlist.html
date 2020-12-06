@@ -2,79 +2,31 @@
     <head>
        <title> Student List </title>
        <link rel="stylesheet" type="text/css" href="style.css">
+       <script>
+           var array=[['20139023', 'Youssef', 'FCIT','user.png'],['20136531','ali','FCIT','user.png']]
+           
+           </script>
     </head>
-    <body>
+    <body onload="init();">
         <nav>
             <ul>
        <li > <a href="index.html" >Home</a></li>
-       <li class="active"><a href="Studentlist.html" >Student list</a></li>
+       <li ><a href="Studentlist.html"class="active" >Student list</a></li>
        <li> <a href="NewStudent.html" >New Student</a></li>
        <li class="nav-right"> <a href="#">Logout</a></li>
     </ul>
-    </nav>
-
-        <!--#nav-->
+    </nav> 
         <hr>
+     <section>
+         <div class="searchbar">
+             <input type="search" name="search" class="searchbox">
+         </div>
+     </section>
 
         <section>
-          <table border="2">
-              <thead>
-                <tr >
-                    <td >ID</td>
-                    <td>Name</td>
-                    <td>Faculty</td>
-                    <td>Image</td>
-                </tr>
-
-              </thead>
-              <tbody>
-                  <tr >
-                      <td colspan="2">
-                          <ol>
-                              <li>20132562</li>
-                              <li>Ali</li>
-                          </ol>
-                      </td>
-                      
-                      <td>Faculty of Computers and Information System</td>
-                      <td><img src="images/user.png" alt="User_img" width="30px" height="30px"/></td>
-                  </tr>
-                  <tr >
-                    <td colspan="2">
-                        <ol>
-                            <li>20132562</li>
-                            <li>Ali</li>
-                        </ol>
-                    </td>
-                    
-                    <td>Faculty of Computers and Information System</td>
-                    <td><img src="images/user.png" alt="User_img" width="30px" height="30px"/></td>
-                </tr>
-                <tr >
-                    <td colspan="2">
-                        <ol>
-                            <li>20132562</li>
-                            <li>Ali</li>
-                        </ol>
-                    </td>
-                    
-                    <td>Faculty of Computers and Information System</td>
-                    <td><img src="images/user.png" alt="User_img" width="30px" height="30px"/></td>
-                </tr>
-                  <tr>
-                    <td colspan="2">2014567 Ahmed</td>
-                   
-                    <td>Faculty of Computers and Information System</td>
-                    <td><img src="images/user.png" alt="User_img" width="30px" height="30px"/></td>
-                </tr>
-
-              </tbody>
-              <tfoot>
-                <tr>
-                    <td colspan="4">Number of students= 2</td>
-                </tr>
-              </tfoot>
-          </table>
+          <div class="mytable">  </div>
+          
+       
           </section>
         <!--#Sec-->
         <hr>
@@ -85,7 +37,37 @@
         <!--#footer-->
      
 
+<script>
 
+function init(){
+    var count=0;
+    var table='';
+    mytable+= '<table border="2">';
+    mytable+='<thead>';
+    mytable+= '<tr >';
+    mytable='<td >ID</td>';
+    mytable+='<td>Name</td>';
+     mytable+='<td>Faculty</td>';
+     mytable+='<td>Image</td>';
+      mytable+='</tr>';
+      mytable+='</thead>';
+      mytable+='<tbody>';
+       for (var i=0;i<array.length;i++){
+           var studentID=array[i][0];
+           var studentname=array[i][1];
+           var studentFaculty=array[i][2];
+           var studentImage=array[i][3];
+
+           mytable+='<tr><td>'+studentID+'</td>'+'<td>'+studentname+'</td>'+'<td>'+studentFaculty+'</td>'+'<td>'+'<img src="images//'+studentImage+'" width="60px" height="60px" alt="image of'+studentname+'"/>'+'</td>'+'</tr>'
+            count++;
+       }
+       mytable+='</tbody>';
+       mytable+='<tfoot><tr><td colspan="4">Number of students:'+count+'</td> </tr></tfoot></table>';
+
+       document.getElementById("mytable").innerHTML;
+       document.addEventListener("body",init());
+}
+</script>
     </body>
 
 </html>
